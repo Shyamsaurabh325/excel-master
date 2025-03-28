@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinMighty Login</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .phone-border {
+            width: 360px;  
+            height: 640px;  
+            border: 6px solid yellow;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0px 0px 15px yellow;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo img {
+            width: 120px;
+        }
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            color: yellow;
+            margin-top: 10px;
+        }
+        .subtitle {
+            font-size: 18px;
+            color: white;
+        }
+        .login-container {
+            width: 100%;
+            text-align: center;
+        }
+        .login-container h2 {
+            color: yellow;
+            margin-bottom: 10px;
+        }
+        .login-container label {
+            color: yellow;
+            font-size: 14px;
+            font-weight: bold;
+            display: block;
+            text-align: left;
+            margin-left: 30px;
+        }
+        .login-container input {
+            width: 80%;
+            padding: 8px;
+            margin: 5px 0;
+            border: none;
+            border-bottom: 2px solid white;
+            background: transparent;
+            color: white;
+            font-size: 14px;
+        }
+        .login-container button {
+            width: 85%;
+            padding: 10px;
+            background-color: yellow;
+            color: black;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+        .footer {
+            margin-top: 15px;
+        }
+        .footer button {
+            background-color: yellow;
+            border: none;
+            color: black;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+    <script>
+        function login() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            fetch("/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email: email, password: password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    window.location.href = data.redirect;
+                } else {
+                    alert("Invalid credentials!");
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="phone-border">
+        <div class="logo">
+            <img src="https://play-lh.googleusercontent.com/9kwo-06RJodn_cWmfW7dAv0LpzhRpnOumyEQb5CRQRjDAXmnwYfhlIi7-b_qJuNpLQ" alt="FinMighty Logo">
+        </div>
+        <div class="title">FINMIGHTY</div>
+        <div class="subtitle">CALCULATOR</div>
+        <div class="login-container">
+            <h2>Login Page</h2>
+            <label for="email">Email - Address</label>
+            <input type="email" id="email" placeholder="Enter Your Email">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter Your Password">
+            <button onclick="login()">Login</button>
+        </div>
+        <div class="footer">
+            <button>For Educational Purposes</button>
+        </div>
+    </div>
+</body>
+</html>
