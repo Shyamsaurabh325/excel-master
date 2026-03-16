@@ -34,6 +34,10 @@ def download_excel():
     
     return send_file(EXCEL_FILE, as_attachment=True)
 
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
 @app.route("/logout")
 def logout():
     session.pop("user", None)

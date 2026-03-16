@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About FinMighty</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .phone-border {
+            width: 360px;
+            height: 640px;
+            border: 6px solid yellow;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0px 0px 15px yellow;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .logo img {
+            width: 120px;
+        }
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            color: yellow;
+            margin-top: 10px;
+        }
+        .subtitle {
+            font-size: 18px;
+            color: white;
+            margin-bottom: 20px;
+        }
+        .about-container {
+            width: 90%;
+            text-align: left;
+            padding: 10px;
+        }
+        .about-container h2 {
+            color: yellow;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .about-container p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: white;
+            margin-bottom: 10px;
+        }
+        .back-btn {
+            width: 85%;
+            padding: 10px;
+            background-color: yellow;
+            color: black;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .footer button {
+            background-color: yellow;
+            border: none;
+            color: black;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-border">
+        <div class="logo">
+            <img src="https://play-lh.googleusercontent.com/9kwo-06RJodn_cWmfW7dAv0LpzhRpnOumyEQb5CRQRjDAXmnwYfhlIi7-b_qJuNpLQ" alt="FinMighty Logo">
+        </div>
+        <div class="title">FINMIGHTY</div>
+        <div class="subtitle">CALCULATOR</div>
+        <div class="about-container">
+            <h2>Who Are We?</h2>
+            <p><strong style="color: yellow;">FinMighty Calculator</strong> is a financial tools platform designed to help users make informed investment and financial decisions.</p>
+            <p>We provide easy-to-use calculators and data resources built for educational purposes, helping you understand and plan your finances better.</p>
+            <p>Our mission is to empower individuals with clear, accessible financial knowledge.</p>
+        </div>
+        <button class="back-btn" onclick="window.location.href='/'">Back to Login</button>
+        <div class="footer">
+            <button>For Educational Purposes</button>
+        </div>
+    </div>
+</body>
+</html>
