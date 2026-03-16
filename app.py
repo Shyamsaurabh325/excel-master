@@ -3,9 +3,17 @@ import pandas as pd
 import os
 
 app = Flask(__name__)
-app.secret_key = "your_secret_key"
 
-USER_DATA = {"finmighty1112@gmail.com": "fin0021@10"}
+_secret_key = os.environ.get("SECRET_KEY")
+if not _secret_key:
+    raise ValueError("SECRET_KEY environment variable must be set")
+app.secret_key = _secret_key
+
+USER_EMAIL = os.environ.get("USER_EMAIL")
+USER_PASSWORD = os.environ.get("USER_PASSWORD")
+if not USER_EMAIL or not USER_PASSWORD:
+    raise ValueError("USER_EMAIL and USER_PASSWORD environment variables must be set")
+USER_DATA = {USER_EMAIL: USER_PASSWORD}
 EXCEL_FILE = "static/data.xlsx"
 
 if not os.path.exists("static"):
